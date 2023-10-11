@@ -28,7 +28,7 @@ return SafeArea(
        Get.to(()=> AvailableVpnServersLocationScreen());
       },
       child: Container(
-        color: Colors.redAccent,
+        color: Colors.blueAccent, //Bottom(Select country/Location)
         padding: EdgeInsets.symmetric(horizontal: sizeScreen.width * .041),
         height: 62 ,
         child: Row(
