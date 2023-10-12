@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/allModels/vpn_configuration.dart';
@@ -26,8 +25,8 @@ void connectToVpnNow() async
     final configuration = Utf8Decoder().convert(dataConfigVpn);
 //Username and password declaration
     final vpnConfiguration = VpnConfiguration(
-      username: "vpn",
-      password: "vpn",
+      username: "vpn",//VPN username
+      password: "vpn",//VPN password
       countryname: vpnInfo.value.countryLongNmae,
       config: configuration
     );
