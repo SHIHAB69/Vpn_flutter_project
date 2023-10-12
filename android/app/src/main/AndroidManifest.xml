@@ -13,7 +13,7 @@
     
     <application
         android:name="${applicationName}"
-        android:label="Free VPN"
+        android:label="MART VPN"
         android:icon="@mipmap/logo"
         tools:ignore="AllowBackup">
         
