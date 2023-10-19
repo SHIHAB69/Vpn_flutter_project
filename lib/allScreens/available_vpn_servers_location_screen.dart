@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/allControllers/controller_vpn_location.dart';
@@ -85,6 +86,20 @@ class AvailableVpnServersLocationScreen extends StatelessWidget
         backgroundColor: Colors.redAccent,
         title: Text(
           "VPN Locations (" + vpnLocationController.vpnFreeServersAvailableList.length.toString() + ")",
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10, right: 10),
+        child: FloatingActionButton(
+          backgroundColor: Colors.redAccent,
+          onPressed: ()
+        {
+          vpnLocationController.retriveVpnInformation();
+        },
+          child: Icon(
+            CupertinoIcons.refresh_circled,
+            size: 40,
+          ),
         ),
       ),
       body: vpnLocationController.isLoadingNewLocations.value

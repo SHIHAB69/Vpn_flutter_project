@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/allControllers/Controller_home.dart';
 import 'package:vpn_basic_project/allModels/vpn_info.dart';
+import 'package:vpn_basic_project/appPreferences/appPreferences.dart';
 import 'package:vpn_basic_project/main.dart';
+import 'package:vpn_basic_project/vpnEngine/vpn_engine.dart';
 
 class VpnLocationCardWidget extends StatelessWidget
 {
@@ -39,7 +41,20 @@ final VpnInfo vpnInfo;
       child: InkWell(
         onTap: ()
         {
+         homeController.vpnInfo.value = vpnInfo;
+         AppPreferences.vpnInfoObj = vpnInfo;
+         Get.back();
 
+         if(homeController.vpnConnectionState.value == VpnEngine.vpnConnectedNow)
+         {
+           VpnEngine.stopVpnNow();
+           
+           Future.delayed(Duration(seconds: 3), ()=> homeController.connectToVpnNow());
+         }
+         else
+           {
+             homeController.connectToVpnNow();
+           }
         },
         borderRadius: BorderRadius.circular(16),
         child: ListTile(

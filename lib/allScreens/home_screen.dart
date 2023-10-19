@@ -28,7 +28,8 @@ return SafeArea(
        Get.to(()=> AvailableVpnServersLocationScreen());
       },
       child: Container(
-        color: Colors.blueAccent, //Bottom(Select country/Location)
+        color: Colors.blueAccent
+        , //Bottom(Select country/Location)
         padding: EdgeInsets.symmetric(horizontal: sizeScreen.width * .041),
         height: 62 ,
         child: Row(
@@ -79,24 +80,24 @@ return SafeArea(
         button: true,
         child: InkWell(
           onTap: (){
-
+           homeController.connectToVpnNow();
           },
           borderRadius: BorderRadius.circular(100),
           child: Container(
-            padding: EdgeInsets.all(18),
+            padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: homeController.getRoundVpnButtonColor.withOpacity(.1),
             ),
             child: Container(
-              padding: EdgeInsets.all(18),
+              padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: homeController.getRoundVpnButtonColor.withOpacity(.3),
                 ),
               child: Container(
                 height: sizeScreen.height * .14,
-                width: sizeScreen.width * .14,
+                width: sizeScreen.height * .14,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: homeController.getRoundVpnButtonColor,
@@ -220,7 +221,7 @@ return SafeArea(
         ),),
 
           //Buttons for vpn
-          vpnRoundButton(),
+          Obx(() => vpnRoundButton()),
           //2 round widget
           //Download + Upload
           StreamBuilder<VpnStatus?>(
